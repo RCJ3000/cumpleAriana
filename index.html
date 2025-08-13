@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invitación de Cumpleaños</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                background: #666cd9;
+                color: #001858;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+                text-align: center;
+                padding: 1.5rem;
+            }   
+            .card {
+                background: #ffffff;
+                padding: 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                width: 100%;
+                max-width: 500px;
+            }
+            img {
+                max-width: 100%;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            .btn-confirmar,
+            #music-toggle {
+                background: #040404;
+                color: white;
+                border: none;
+                padding: 1rem 1.5rem;
+                margin-top: 1rem;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 1.1rem;
+                text-decoration: none;
+                display: inline-block;
+                width: 100%;
+                max-width: 300px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+            }
+            .btn-confirmar:hover,
+            #music-toggle:hover {
+                background: #0b2b6e;
+            }
+            .btn-confirmar:active,
+            #music-toggle:active {
+                transform: scale(0.98);
+                box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <img src="invitación_ariana.png" alt="Invitación de cumpleaños">
+            <button class="btn-confirmar" onclick="confirmarAsistencia()">Confirmar asistencia</button>
+            <button id="music-toggle">🎶 Activar música</button>
+        </div>
+        <!-- Audio oculto -->
+        <audio id="bg-music" loop>
+            <source src="música.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio HTML5.
+        </audio>
+        <script>
+            function confirmarAsistencia() {
+                const url = "https://wa.me/5491151465747?text=Confirmo%20mi%20asistencia%20al%20cumpleaños,%20gracias%20por%20la%20invitación";
+                window.location.href = url;
+            }
+            const music = document.getElementById('bg-music');
+            const toggleBtn = document.getElementById('music-toggle');
+            toggleBtn.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    toggleBtn.textContent = '🔇 Desactivar música';
+                } else {
+                    music.pause();
+                    toggleBtn.textContent = '🎶 Activar música';
+                }
+            });
+        </script>
+    </body>
+</html>
