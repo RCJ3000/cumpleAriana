@@ -7,7 +7,7 @@
         <style>
             body {
                 font-family: 'Segoe UI', sans-serif;
-                background: #666cd9;
+                background: #4293d4;
                 color: #001858;
                 display: flex;
                 flex-direction: column;
@@ -19,7 +19,7 @@
                 padding: 1.5rem;
             }   
             .card {
-                background: #ffffff;
+                background: #51bdde;
                 padding: 1.5rem;
                 border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -61,19 +61,24 @@
     </head>
     <body>
         <div class="card">
-            <img src="invitación_ariana.png" alt="Invitación de cumpleaños">
-            <button class="btn-confirmar" onclick="confirmarAsistencia()">Confirmar asistencia</button>
+            <img src="InvitacionAriana.png" alt="Invitación de cumpleaños">
             <button id="music-toggle">🎶 Activar música</button>
+            <button class="btn-confirmar" onclick="obtenerUbicacion()">Ver ubicación</button>
+            <button class="btn-confirmar" onclick="confirmarAsistencia()">Confirmar asistencia</button>
         </div>
         <!-- Audio oculto -->
         <audio id="bg-music" loop>
-            <source src="música.mp3" type="audio/mpeg">
+            <source src="MusicaFondo.mp3" type="audio/mpeg">
             Tu navegador no soporta audio HTML5.
         </audio>
         <script>
             function confirmarAsistencia() {
                 const url = "https://wa.me/5491151465747?text=Confirmo%20mi%20asistencia%20al%20cumpleaños,%20gracias%20por%20la%20invitación";
                 window.location.href = url;
+            }
+            function obtenerUbicacion() {
+                const ubicacion = "https://maps.app.goo.gl/rqQDA3EiW1UxmNFV8";
+                window.location.href = ubicacion;
             }
             const music = document.getElementById('bg-music');
             const toggleBtn = document.getElementById('music-toggle');
